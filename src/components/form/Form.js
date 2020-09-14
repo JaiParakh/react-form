@@ -14,7 +14,8 @@ class Form extends Component{
             password: '',
             passrep: '',
             description: '',
-            linkedInUrl: ''
+            linkedInUrl: '',
+            data: ''
         }
     }
 
@@ -62,7 +63,9 @@ class Form extends Component{
         }).then(res => {
             //const {history} = this.props;
             console.log(res.data);
-            
+
+            // The object to be printed is res.data;
+            this.setState({data: res.data.accept});
         });
     }
 
@@ -74,6 +77,9 @@ class Form extends Component{
                 <form onSubmit={this.submitData}>
                 <input type="submit" className="btn btn-primary btn-block" value="Sign Up" />
                 </form>
+                <div>
+                    {this.state.data}  
+                </div>
                 {/*<div className="form-container">
                     <form onSubmit={this.submitData}>
                         <h2 className="text-center"><strong>Create</strong> an account.</h2>
