@@ -9,10 +9,16 @@ class Form extends Component{
     constructor(props){
         super(props);
         this.state = {
-            data: ''
+            data: '',
+            response: ''
         }
     }
 
+    handleTextChange = (e) => {
+        e.preventDefult();
+        this.setState({ response: e.value });
+    }
+    
     submitData = (e) => {
         e.preventDefault();
     
